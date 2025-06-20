@@ -21,6 +21,7 @@ gunzip openwrt-x86-64-generic-ext4-combined.img.gz
 qemu-img convert -f raw -O qcow2 openwrt-*.img openwrt.qcow2
 ```
 once unzipped and converted we need to create a VM. <br />
+![Alt text](/Screenshot_2025-06-20_12-10-14.png?raw=true "virt-manager")
 
 Change the routing address for virbr1 to allow host access to router panel
 ```bash
