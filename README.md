@@ -11,3 +11,8 @@ What you need:
 - Machine with KVM supported and setup
 - a Guest OS for testing
 
+
+'''
+sudo ip addr add 192.168.1.10/24 dev virbr1
+sudo ip addr del 192.168.100.1/24 dev virbr1
+'''
