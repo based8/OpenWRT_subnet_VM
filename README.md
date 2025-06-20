@@ -23,11 +23,10 @@ qemu-img convert -f raw -O qcow2 openwrt-*.img openwrt.qcow2
 once unzipped and converted we need to create a VM. <br />
 <br /> 
 ### virt-manager -> [edit] -> [connection details] -> [virtual network] -> [+] <br />
-![Alt text](/Screenshot_2025-06-20_12-10-14.png?raw=true "virt-manager")
-When creating the virtual network we need to make it Isolated as this will be our LAN. <br />
+![Alt text](/Screenshot_2025-06-20_12-10-14.png?raw=true "virt-manager") <br />
+When creating the virtual network we need to make it Isolated as this will be our LAN.
 We will use default as our WAN. <br />
-
-We create our wm using our previously made openwrt.qcow2. No installation or anything will be needed. <br />
+We create our wm using our previously made openwrt.qcow2. No installation or anything will be needed.
 Before we enter the VM we customize the config. We need to add 2 NICs. The WAN (default virtual network) and the LAN (our isolated virtual network) <br />
 
 
