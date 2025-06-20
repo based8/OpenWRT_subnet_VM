@@ -12,14 +12,15 @@ What you need:
 - a Guest OS for testing
 
 ### step 1 - get openwrt
-from https://downloads.openwrt.org/ get the latest combined image for x86_64
-As of writing this its at https://downloads.openwrt.org/releases/24.10.1/targets/x86/64/
-when youve downloaded it put it you "VM" folder or whatever and you will need to convert the image to a qcow2
-Unzip and convert OpenWrt image to qcow2
+from https://downloads.openwrt.org/ get the latest combined image for x86_64 <br />
+As of writing this its at https://downloads.openwrt.org/releases/24.10.1/targets/x86/64/ <br />
+when youve downloaded it put it you "VM" folder or whatever and you will need to convert the image to a qcow2 <br /> 
+
 ```bash
 gunzip openwrt-x86-64-generic-ext4-combined.img.gz
 qemu-img convert -f raw -O qcow2 openwrt-*.img openwrt.qcow2
 ```
+once unzipped and converted we need to create a VM. <br />
 
 Change the routing address for virbr1 to allow host access to router panel
 ```bash
