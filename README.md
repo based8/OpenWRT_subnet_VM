@@ -22,7 +22,7 @@ qemu-img convert -f raw -O qcow2 openwrt-*.img openwrt.qcow2
 ```
 once unzipped and converted we need to create a VM. <br />
 <br /> 
-virt-manager -> [edit] -> [connection details] -> [virtual network] -> [+] <br />
+## virt-manager -> [edit] -> [connection details] -> [virtual network] -> [+] <br />
 ![Alt text](/Screenshot_2025-06-20_12-10-14.png?raw=true "virt-manager")
 
 Change the routing address for virbr1 to allow host access to router panel
