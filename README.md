@@ -28,8 +28,8 @@ When creating the virtual network we need to make it Isolated as this will be ou
 We will use default as our WAN. <br />
 We create our wm using our previously made openwrt.qcow2. No installation or anything will be needed.
 Before we enter the VM we customize the config. We need to add 2 NICs. The WAN (default virtual network) and the LAN (our isolated virtual network) <br />
-
-
+![Alt text](/Screenshot_2025-06-20_12-22-55.png?raw=true "virt-manager") <br />
+With the 2 NICs added we start the OpenWRT VM.
 
 Change the routing address for virbr1 to allow host access to router panel
 ```bash
