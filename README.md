@@ -11,8 +11,14 @@ What you need:
 - Machine with KVM supported and setup
 - a Guest OS for testing
 
+Unzip and convert OpenWrt image to qcow2
+```bash
+$ gunzip openwrt-x86-64-generic-ext4-combined.img.gz
+$ qemu-img convert -f raw -O qcow2 openwrt-*.img openwrt.qcow2
+```
 
-'''
-sudo ip addr add 192.168.1.10/24 dev virbr1
-sudo ip addr del 192.168.100.1/24 dev virbr1
-'''
+Change the routing address for virbr1 to allow host access to router panel
+```bash
+$ sudo ip addr add 192.168.1.10/24 dev virbr1
+$ sudo ip addr del 192.168.100.1/24 dev virbr1
+```
