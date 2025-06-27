@@ -31,8 +31,35 @@ Before we enter the VM we customize the config. We need to add 2 NICs. The WAN (
 ![Alt text](/Screenshot_2025-06-20_12-22-55.png?raw=true "virt-manager") <br />
 With the 2 NICs added we start the OpenWRT VM.
 
-Change the routing address for virbr1 to allow host access to router panel
+### Once in the router we define network configs at /etc/config/network
+The following config was made for the purpose of further tunneling hence the dns options which are marked as OPTIONAL
+We define the lan and wan networks and as you can see we assign lan to '192.168.1.1' <br />
+```
+config device
+    option name 'br-lan'
+    option type 'bridge'
+    list ports 'eth1'
+
+config interface 'lan'
+    option device 'br-lan'
+    option proto 'static'
+    option dhcp_option 'DNS ADDRESS' ## OPTIONAL
+    option ipaddr '192.168.1.1'
+    option netmask '255.255.255.0'
+    option ipassign '60'
+
+config interface 'wan'
+    option peerdns '0' ## OPTIONAL
+    option device 'eth0'
+    option proto 'dhcp'
+```
+we can now rerout our hosts ips. <br />
+
+to change the routing address for virbr1 to allow host access to router panel and for the subnets functionallity and connection between other machienes we need to do this on the host.
+This is assuming the device virbr1 by default gets ip '192.168.100.1' ( Check with "ip addr" to see what virbr1's address is before )
 ```bash
 sudo ip addr add 192.168.1.10/24 dev virbr1
 sudo ip addr del 192.168.100.1/24 dev virbr1
 ```
+Now you can check on the host by going to '192.168.1.1' in your browser. You will get the LUCI panel. Note, this is only the panels, your host is still connected to the so called "WAN".<br />
+But if you add a new virtual machine and add only the isolated network NIC then all traffic for that VM will go through the OpenWRT router.
