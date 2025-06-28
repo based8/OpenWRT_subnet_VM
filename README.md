@@ -1,4 +1,3 @@
-# OpenWRT_subnet_VM
 --------------------------------------------------------------------
 ## OpenWRT VM to create a subnet for you VMs
 This is a guide how to create a subnet for your VMs that passes through a OpenWRT VM.
@@ -11,6 +10,7 @@ What you need:
 - Machine with KVM supported and setup
 - a Guest OS for testing
 
+--------------------------------------------------------------------
 ## step 1 - get openwrt
 from https://downloads.openwrt.org/ get the latest combined image for x86_64 <br />
 As of writing this its at https://downloads.openwrt.org/releases/24.10.1/targets/x86/64/ <br />
@@ -31,6 +31,8 @@ Before we enter the VM we customize the config. We need to add 2 NICs. The WAN (
 ![Alt text](/Screenshot_2025-06-20_12-22-55.png?raw=true "virt-manager") <br />
 With the 2 NICs added we start the OpenWRT VM.
 
+--------------------------------------------------------------------
+## step 2 - configure openwrt and host panel
 ### Once in the router we define network configs at /etc/config/network
 The following config was made for the purpose of further tunneling hence the dns options which are marked as OPTIONAL
 We define the lan and wan networks and as you can see we assign lan to '192.168.1.1' <br />
